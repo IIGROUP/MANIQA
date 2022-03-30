@@ -2,6 +2,8 @@
 
 This repo is for NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition.
 
+**Team name: THU_IIGROUP**
+
 ![image.png](image/pipeline.png)
 
 ## Dataset
