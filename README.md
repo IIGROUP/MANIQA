@@ -28,10 +28,4 @@ python ensemble.py
 - Ubuntu 18.04.6 LTS (GNU/Linux 5.4.0-104-generic x86\_64)
 - CUDA Version 11.2
 - GPU: NVIDIA GeForce RTX 3090 with 24GB memory
-- torch
-- numpy
-- logging
-- tqdm
-- json
-- cv2
-- einops
+- torch, numpy, logging, tqdm, json, cv2, einops
