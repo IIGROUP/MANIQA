@@ -11,6 +11,8 @@ Before running the codes, you should download the PIPAL datasets for [Training](
 Note that although we load the reference images, we only use the distorted images as input for training and testing.
 
 ## Training & Testing & Ensemble
+**NOTE:** You need to download PIPAL [Testing Distorted Images](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) and unzip the file named **"NTIRE2022_NR_Testing_Dis"** to **"Dis"** folder in cureent MANNA path. 
+
 Training the MANNA model, run:
 ```
 python train.py
@@ -19,9 +21,11 @@ For generating the ouput file, run:
 ```
 python inference.py
 ```
+
+### Generate Final Results (The results in the [Leaderboard](https://codalab.lisn.upsaclay.fr/competitions/1568#results))
 For ensembling the model and generating the output file, run:
 ```
-python ensemble.py
+python ensemble.py or sh generate_output.sh
 ```
 
 ## Environments & Requirements
