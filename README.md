@@ -14,13 +14,13 @@ Note that although we load the reference images, we only use the distorted image
 **NOTE:** You need to download PIPAL [Testing Distorted Images](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) and unzip the file named **"NTIRE2022_NR_Testing_Dis"** to **"Dis"** folder in cureent MANNA path. **MANNA-master path tree:**
 ```
 ├── Dis
-│   ├── ... # the PIPAL22 testing dataset
+│   └── ... # the PIPAL22 testing dataset
 ├── config.py
 ├── data
 │   ├── ntire2022.py
 │   ├── pipal.py
 │   ├── PIPAL_train.txt
-│   ├── PIPAL_val.txt
+│   └── PIPAL_val.txt
 ├── ensemble.py
 ├── inference.py
 ├── models
@@ -30,16 +30,16 @@ Note that although we load the reference images, we only use the distorted image
 │   ├── log
 │   ├── models
 │   │   ├── ensemble_attentionIQA2_finetune
-│   │   │   ├── epoch2
+│   │   │   └── epoch2
 │   │   ├── ensemble_attentionIQA2_finetune_e2
-│   │   │   ├── epoch4
-│   │   ├── test_model_attentionIQA2
-│   │   │   └── epoch1
+│   │   │   └── epoch4
+│   │   └── test_model_attentionIQA2
+│   │       └── epoch1
 │   ├── tensorboard
 │   └── valid
 ├── generate_output.sh
 ├── timm
-│   ├── ...
+│   └── ...
 ├── train_attentionIQA2.py
 └── utils
     ├── eval_process_image.py
