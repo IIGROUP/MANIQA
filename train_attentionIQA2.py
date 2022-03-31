@@ -1,5 +1,4 @@
 import os
-import cv2
 import torch
 import numpy as np
 import logging
@@ -9,7 +8,7 @@ import random
 
 from torchvision import transforms
 from torch.utils.data import DataLoader
-from models.manna import MANNA
+from models.model_attentionIQA2 import AttentionIQA
 from config import Config
 from utils.process_image import RandCrop, ToTensor, RandHorizontalFlip, Normalize, crop_image
 from scipy.stats import spearmanr, pearsonr
@@ -270,7 +269,7 @@ if __name__ == '__main__':
         drop_last=True,
         shuffle=False
     )
-    net = MANNA(
+    net = AttentionIQA(
         embed_dim=config.embed_dim,
         num_outputs=config.num_outputs,
         dim_mlp=config.dim_mlp,

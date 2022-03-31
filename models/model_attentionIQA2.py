@@ -46,7 +46,7 @@ class SaveOutput:
         self.outputs = []
 
 
-class MANNA(nn.Module):
+class AttentionIQA(nn.Module):
     def __init__(self, embed_dim=72, num_outputs=1, patch_size=8, drop=0.1, 
                     depths=[2, 2], window_size=4, dim_mlp=768, num_heads=[4, 4],
                     img_size=224, num_channel_attn=2, **kwargs):

@@ -1,1 +1,7 @@
 __pycache__
+
+Dis/
+
+*.zip
+
+output/models/

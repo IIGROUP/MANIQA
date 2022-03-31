@@ -1,18 +1,21 @@
+import warnings
 import os
 import torch
 import numpy as np
 import logging
 import random
+import pandas as pd
 
 from torchvision import transforms
 from torch.utils.data import DataLoader
 from config import Config
-from utils.eval_process_image import ToTensor, Normalize, crop_image, RandHorizontalFlip
+from utils.eval_process_image import ToTensor, Normalize, crop_image
 from data.ntire2022 import NTIRE2022
 from tqdm import tqdm
 
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '2'
+warnings.filterwarnings('ignore')
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 
 def setup_seed(seed):
@@ -99,6 +102,26 @@ def sort_file(file_path):
             f.write(i + '\n')
 
 
+def ensemble(config, net7, net4, net1, val_loader):
+    eval_epoch(config, net7, net4, net1, val_loader)
+    sort_file(config.valid_path + '/output.txt')
+    out = './output.txt'
+    data = pd.read_csv(out, sep=',', names=['image_name', 'output_score'])
+
+    for i in range(len(data)):
+        try:
+            if int(data['image_name'][i].split('_')[-1].split('.')[0]) == config.idx_ensemble:
+                data['output_score'][i] += config.bias_ensemble
+        except:
+            pass
+    f = open('./output.txt', 'w')
+    for i in range(len(data)):
+        line = "%s,%f\n" % (data['image_name'][i], float(data['output_score'][i]))
+        f.write(line)
+
+    f.close()
+
+
 if __name__ == '__main__':
     cpu_num = 1
     os.environ['OMP_NUM_THREADS'] = str(cpu_num)
@@ -114,13 +137,15 @@ if __name__ == '__main__':
     config = Config({
         # dataset path
         "db_name": "PIPAL",                                        
-        "val_ref_path": "/mnt/data_16TB/wth22/IQA_dataset/Dis/",
-        "val_dis_path": "/mnt/data_16TB/wth22/IQA_dataset/Dis/",
+        "val_ref_path": "./Dis/",
+        "val_dis_path": "./Dis/",
 
         # optimization
         "batch_size": 10,
         "num_avg_val": 1,
         "crop_size": 224,
+        "bias_ensemble": 0.1,
+        "idx_ensemble": 46,
 
         # device
         "num_workers": 8,
@@ -147,14 +172,19 @@ if __name__ == '__main__':
     val_dataset = NTIRE2022(
         ref_path=config.val_ref_path,
         dis_path=config.val_dis_path,
-        transform=transforms.Compose([Normalize(0.5, 0.5), ToTensor()]),
+        transform=transforms.Compose(
+            [
+                Normalize(0.5, 0.5),
+                ToTensor()
+            ]
+        ),
     )
     val_loader = DataLoader(
         dataset=val_dataset,
         batch_size=config.batch_size,
         num_workers=config.num_workers,
         drop_last=True,
-        shuffle=False
+        shuffle=True
     )
 
     net1 = torch.load(config.model_path1)
@@ -167,8 +197,5 @@ if __name__ == '__main__':
     net7 = net7.cuda()
 
     # train & validation
-    losses, scores = [], []
-    eval_epoch(config, net7, net4, net1, val_loader)
-
-    sort_file(config.valid_path + '/output.txt')
+    ensemble(config, net7, net4, net1, val_loader)
     
