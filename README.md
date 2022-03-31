@@ -13,6 +13,8 @@ Note that although we load the reference images, we only use the distorted image
 ## Training & Testing & Ensemble
 **NOTE:** You need to download PIPAL [Testing Distorted Images](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) and unzip the file named **"NTIRE2022_NR_Testing_Dis"** to **"Dis"** folder in cureent MANNA path. **MANNA-master path tree:**
 ```
+├── Dis
+│   ├── ... # the PIPAL22 testing dataset
 ├── config.py
 ├── data
 │   ├── ntire2022.py
