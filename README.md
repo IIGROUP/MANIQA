@@ -11,7 +11,7 @@ Before running the codes, you should download the PIPAL datasets for [Training](
 Note that although we load the reference images, we only use the distorted images as input for training and testing.
 
 ## Training & Testing & Ensemble
-**NOTE:** You need to download PIPAL [Testing Distorted Images](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) and unzip the file named **"NTIRE2022_NR_Testing_Dis"** to **"Dis"** folder in cureent MANNA path. **MANNA-master path tree:**
+**NOTE:** You need to download PIPAL [Testing Distorted Images](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) and unzip the file named **"NTIRE2022_NR_Testing_Dis"** to **"Dis"** folder in cureent MANNA path. And create output folder in cureent MANNA path. Place the weights into the output folder like the **MANNA-master path tree** shows.
 ```
 ├── Dis
 │   └── ... # the PIPAL22 testing dataset
