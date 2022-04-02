@@ -45,6 +45,7 @@ Note that although we load the reference images, we only use the distorted image
     ├── eval_process_image.py
     └── process_image.py
 ```
+**ATTENTION**: Before running the codes, please make sure you've changed **the dataset path** in train.py or inference.py.
 
 Training the MANNA model, run:
 ```
