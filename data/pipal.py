@@ -5,14 +5,13 @@ import cv2
 
 
 class PIPAL(torch.utils.data.Dataset):
-    def __init__(self, ref_path, dis_path, txt_file_name, transform):
+    def __init__(self, dis_path, txt_file_name, transform):
         super(PIPAL, self).__init__()
-        self.ref_path = ref_path
         self.dis_path = dis_path
         self.txt_file_name = txt_file_name
         self.transform = transform
 
-        dis_files_data, score_data = [], [], []
+        dis_files_data, score_data = [], []
         with open(self.txt_file_name, 'r') as listFile:
             for line in listFile:
                 dis, score = line.split()
