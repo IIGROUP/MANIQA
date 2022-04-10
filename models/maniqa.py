@@ -8,7 +8,7 @@ from torch import nn
 from einops import rearrange
 
 
-class ChannelAttn(nn.Module):
+class TABlock(nn.Module):
     def __init__(self, dim, drop=0.1):
         super().__init__()
         self.c_q = nn.Linear(dim, dim)
@@ -46,7 +46,7 @@ class SaveOutput:
         self.outputs = []
 
 
-class AttentionIQA(nn.Module):
+class MANIQA(nn.Module):
     def __init__(self, embed_dim=72, num_outputs=1, patch_size=8, drop=0.1, 
                     depths=[2, 2], window_size=4, dim_mlp=768, num_heads=[4, 4],
                     img_size=224, num_channel_attn=2, **kwargs):
@@ -64,8 +64,8 @@ class AttentionIQA(nn.Module):
                 handle = layer.register_forward_hook(self.save_output)
                 hook_handles.append(handle)
 
-        self.channel_attn1 = nn.Sequential(*[ChannelAttn(self.input_size ** 2) for i in range(num_channel_attn)])
-        self.channel_attn2 = nn.Sequential(*[ChannelAttn(self.input_size ** 2) for i in range(num_channel_attn)])
+        self.channel_attn1 = nn.Sequential(*[TABlock(self.input_size ** 2) for i in range(num_channel_attn)])
+        self.channel_attn2 = nn.Sequential(*[TABlock(self.input_size ** 2) for i in range(num_channel_attn)])
         
         self.conv1 = nn.Conv2d(embed_dim * 4, embed_dim, 1, 1, 0)
         self.swintransformer1 = SwinTransformer(

@@ -12,14 +12,12 @@ class PIPAL(torch.utils.data.Dataset):
         self.txt_file_name = txt_file_name
         self.transform = transform
 
-        ref_files_data, dis_files_data, score_data = [], [], []
+        dis_files_data, score_data = [], [], []
         with open(self.txt_file_name, 'r') as listFile:
             for line in listFile:
                 dis, score = line.split()
                 dis = dis[:-1]
-                ref = dis[:5] + '.bmp'
                 score = float(score)
-                ref_files_data.append(ref)
                 dis_files_data.append(dis)
                 score_data.append(score)
 
@@ -28,23 +26,16 @@ class PIPAL(torch.utils.data.Dataset):
         score_data = self.normalization(score_data)
         score_data = score_data.astype('float').reshape(-1, 1)
 
-        self.data_dict = {'r_img_list': ref_files_data, 'd_img_list': dis_files_data, 'score_list': score_data}
+        self.data_dict = {'d_img_list': dis_files_data, 'score_list': score_data}
 
     def normalization(self, data):
         range = np.max(data) - np.min(data)
         return (data - np.min(data)) / range
 
     def __len__(self):
-        return len(self.data_dict['r_img_list'])
+        return len(self.data_dict['d_img_list'])
     
     def __getitem__(self, idx):
-        # r_img: H x W x C -> C x H x W
-        r_img_name = self.data_dict['r_img_list'][idx]
-        r_img = cv2.imread(os.path.join(self.ref_path, r_img_name), cv2.IMREAD_COLOR)
-        r_img = cv2.cvtColor(r_img, cv2.COLOR_BGR2RGB)
-        r_img = np.array(r_img).astype('float32') / 255
-        r_img = np.transpose(r_img, (2, 0, 1))
-
         d_img_name = self.data_dict['d_img_list'][idx]
         d_img = cv2.imread(os.path.join(self.dis_path, d_img_name), cv2.IMREAD_COLOR)
         d_img = cv2.cvtColor(d_img, cv2.COLOR_BGR2RGB)
@@ -53,7 +44,6 @@ class PIPAL(torch.utils.data.Dataset):
         
         score = self.data_dict['score_list'][idx]
         sample = {
-            'r_img_org': r_img,
             'd_img_org': d_img,
             'score': score
         }

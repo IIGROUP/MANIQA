@@ -8,9 +8,9 @@ import random
 
 from torchvision import transforms
 from torch.utils.data import DataLoader
-from models.model_attentionIQA2 import AttentionIQA
+from models.maniqa import MANIQA
 from config import Config
-from utils.process_image import RandCrop, ToTensor, RandHorizontalFlip, Normalize, crop_image
+from utils.process_image import RandCrop, ToTensor, RandHorizontalFlip, Normalize, random_crop
 from scipy.stats import spearmanr, pearsonr
 from data.pipal import PIPAL
 from torch.utils.tensorboard import SummaryWriter 
@@ -42,32 +42,6 @@ def set_logging(config):
         format='[%(asctime)s %(levelname)-8s] %(message)s',
         datefmt='%Y%m%d %H:%M:%S'
     )
-
-
-def five_point_crop(idx, d_img, config):
-    new_h = config.crop_size
-    new_w = config.crop_size
-    b, c, h, w = d_img.shape
-    if idx == 0:
-        top = 0
-        left = 0
-    elif idx == 1:
-        top = 0
-        left = w - new_w
-    elif idx == 2:
-        top = h - new_h
-        left = 0
-    elif idx == 3:
-        top = h - new_h
-        left = w - new_w
-    elif idx == 4:
-        center_h = h // 2
-        center_w = w // 2
-        top = center_h - new_h // 2
-        left = center_w - new_w // 2
-    d_img_org = crop_image(top, left, config.crop_size, img=d_img)
-
-    return d_img_org
 
 
 def train_epoch(config, epoch, net, criterion, optimizer, scheduler, train_loader):
@@ -122,7 +96,7 @@ def eval_epoch(config, epoch, net, criterion, test_loader):
                 x_d = data['d_img_org'].cuda()
                 labels = data['score']
                 labels = torch.squeeze(labels.type(torch.FloatTensor)).cuda()
-                x_d = five_point_crop(i, d_img=x_d, config=config)
+                x_d = random_crop(i, d_img=x_d, config=config)
                 pred += net(x_d)
 
             pred /= config.num_avg_val
@@ -158,13 +132,13 @@ if __name__ == '__main__':
     # config file
     config = Config({
         # dataset path
-        "db_name": "PIPAL",                                                     # database name [ PIPAL | LIVE | CSIQ | TID2013 ]
+        "db_name": "PIPAL",
         "train_ref_path": "/mnt/data_16TB/wth22/IQA_dataset/PIPAL/Train_Ref/",
         "train_dis_path": "/mnt/data_16TB/wth22/IQA_dataset/PIPAL/Train_Distort/",       
         "val_ref_path": "/mnt/data_16TB/wth22/IQA_dataset/PIPAL/Val_Ref/",
         "val_dis_path": "/mnt/data_16TB/wth22/IQA_dataset/PIPAL/Val_Distort/",
-        "train_txt_file_name": "./data/PIPAL_train.txt",
-        "val_txt_file_name": "./data/PIPAL_val.txt",
+        "train_txt_file_name": "./data/pipal21_train.txt",
+        "val_txt_file_name": "./data/pipal21_val.txt",
 
         # optimization
         "batch_size": 8,
@@ -176,8 +150,6 @@ if __name__ == '__main__':
         "eta_min": 0,
         "num_avg_val": 5,
         "crop_size": 224,
-
-        # device
         "num_workers": 8,
 
         # model
@@ -192,9 +164,9 @@ if __name__ == '__main__':
         "num_channel_attn": 2,
         
         # load & save checkpoint
-        "model_name": "ensemble_attentionIQA2_finetune_train1_falsecudnn",
+        "model_name": "model_maniqa",
         "snap_path": "./output/models/",               # directory for saving checkpoint
-        "log_path": "./output/log/test_finetune/",
+        "log_path": "./output/log/maniqa/",
         "log_file": ".txt",
         "tensorboard_path": "./output/tensorboard/"
     })
@@ -217,21 +189,7 @@ if __name__ == '__main__':
         txt_file_name=config.train_txt_file_name,
         transform=transforms.Compose(
             [
-                RandCrop(config.crop_size, 1),
-                Normalize(0.5, 0.5),
-                RandHorizontalFlip(),
-                ToTensor()
-            ]
-        ),
-    )
-    # finetune data
-    finetune_dataset = PIPAL(
-        ref_path=config.val_ref_path,
-        dis_path=config.val_dis_path,
-        txt_file_name=config.val_txt_file_name,
-        transform=transforms.Compose(
-            [
-                RandCrop(config.crop_size, 1),
+                RandCrop(config.crop_size),
                 Normalize(0.5, 0.5),
                 RandHorizontalFlip(),
                 ToTensor()
@@ -255,13 +213,6 @@ if __name__ == '__main__':
         drop_last=True,
         shuffle=True
     )
-    finetune_loader = DataLoader(
-        dataset=finetune_dataset,
-        batch_size=config.batch_size,
-        num_workers=config.num_workers,
-        drop_last=True,
-        shuffle=True
-    )
     val_loader = DataLoader(
         dataset=val_dataset,
         batch_size=config.batch_size,
@@ -269,7 +220,7 @@ if __name__ == '__main__':
         drop_last=True,
         shuffle=False
     )
-    net = AttentionIQA(
+    net = MANIQA(
         embed_dim=config.embed_dim,
         num_outputs=config.num_outputs,
         dim_mlp=config.dim_mlp,
@@ -303,9 +254,7 @@ if __name__ == '__main__':
     for epoch in range(0, config.n_epoch):
         start_time = time.time()
         logging.info('Running training epoch {}'.format(epoch + 1))
-        if epoch == 0:
-            loss_val, rho_s, rho_p = train_epoch(config, epoch, net, criterion, optimizer, scheduler, train_loader)
-        _loss_val, _rho_s, _rho_p = train_epoch(config, epoch, net, criterion, optimizer, scheduler, finetune_loader)
+        loss_val, rho_s, rho_p = train_epoch(config, epoch, net, criterion, optimizer, scheduler, train_loader)
 
         writer.add_scalar("Train_loss", loss_val, epoch)
         writer.add_scalar("SRCC", rho_s, epoch)
