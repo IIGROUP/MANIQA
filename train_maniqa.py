@@ -133,9 +133,7 @@ if __name__ == '__main__':
     config = Config({
         # dataset path
         "db_name": "PIPAL",
-        "train_ref_path": "/mnt/data_16TB/wth22/IQA_dataset/PIPAL/Train_Ref/",
-        "train_dis_path": "/mnt/data_16TB/wth22/IQA_dataset/PIPAL/Train_Distort/",       
-        "val_ref_path": "/mnt/data_16TB/wth22/IQA_dataset/PIPAL/Val_Ref/",
+        "train_dis_path": "/mnt/data_16TB/wth22/IQA_dataset/PIPAL/Train_Distort/",
         "val_dis_path": "/mnt/data_16TB/wth22/IQA_dataset/PIPAL/Val_Distort/",
         "train_txt_file_name": "./data/pipal21_train.txt",
         "val_txt_file_name": "./data/pipal21_val.txt",
