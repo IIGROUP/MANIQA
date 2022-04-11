@@ -4,9 +4,9 @@ import numpy as np
 import cv2 
 
 
-class PIPAL(torch.utils.data.Dataset):
+class PIPAL21(torch.utils.data.Dataset):
     def __init__(self, dis_path, txt_file_name, transform):
-        super(PIPAL, self).__init__()
+        super(PIPAL21, self).__init__()
         self.dis_path = dis_path
         self.txt_file_name = txt_file_name
         self.transform = transform

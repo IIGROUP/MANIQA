@@ -15,6 +15,32 @@ def crop_image(top, left, patch_size, img=None):
     return tmp_img
 
 
+def five_point_crop(idx, d_img, config):
+    new_h = config.crop_size
+    new_w = config.crop_size
+    b, c, h, w = d_img.shape
+    if idx == 0:
+        top = 0
+        left = 0
+    elif idx == 1:
+        top = 0
+        left = w - new_w
+    elif idx == 2:
+        top = h - new_h
+        left = 0
+    elif idx == 3:
+        top = h - new_h
+        left = w - new_w
+    elif idx == 4:
+        center_h = h // 2
+        center_w = w // 2
+        top = center_h - new_h // 2
+        left = center_w - new_w // 2
+    d_img_org = crop_image(top, left, config.crop_size, img=d_img)
+
+    return d_img_org
+
+
 def split_dataset_kadid10k(txt_file_name, split_seed=20):
     np.random.seed(split_seed)
     object_data = []

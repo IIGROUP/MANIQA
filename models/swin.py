@@ -368,7 +368,6 @@ class SwinTransformer(nn.Module):
         self.depths = depths
         self.num_heads = num_heads
         self.window_size = window_size
-        self.pos_drop = nn.Dropout(p=drop_rate)
         self.dropout = nn.Dropout(p=drop)
         self.num_features = embed_dim
         self.num_layers = len(depths)
@@ -399,7 +398,6 @@ class SwinTransformer(nn.Module):
 
     def forward(self, x):
         x = self.dropout(x)
-        x = self.pos_drop(x)
         x = rearrange(x, 'b c h w -> b (h w) c')
         for layer in self.layers:
             _x = x

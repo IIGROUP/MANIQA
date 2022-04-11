@@ -10,14 +10,14 @@ from torchvision import transforms
 from torch.utils.data import DataLoader
 from models.maniqa import MANIQA
 from config import Config
-from utils.process_image import RandCrop, ToTensor, RandHorizontalFlip, Normalize, random_crop
+from utils.process import RandCrop, ToTensor, RandHorizontalFlip, Normalize, five_point_crop
 from scipy.stats import spearmanr, pearsonr
-from data.pipal import PIPAL
+from data.pipal21 import PIPAL21
 from torch.utils.tensorboard import SummaryWriter 
 from tqdm import tqdm
 
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '3'
+os.environ['CUDA_VISIBLE_DEVICES'] = '5'
 
 
 def setup_seed(seed):
@@ -44,7 +44,7 @@ def set_logging(config):
     )
 
 
-def train_epoch(config, epoch, net, criterion, optimizer, scheduler, train_loader):
+def train_epoch(epoch, net, criterion, optimizer, scheduler, train_loader):
     losses = []
     net.train()
     # save data for one epoch
@@ -96,7 +96,7 @@ def eval_epoch(config, epoch, net, criterion, test_loader):
                 x_d = data['d_img_org'].cuda()
                 labels = data['score']
                 labels = torch.squeeze(labels.type(torch.FloatTensor)).cuda()
-                x_d = random_crop(i, d_img=x_d, config=config)
+                x_d = five_point_crop(i, d_img=x_d, config=config)
                 pred += net(x_d)
 
             pred /= config.num_avg_val
@@ -161,30 +161,38 @@ if __name__ == '__main__':
         "window_size": 4,
         "depths": [2, 2],
         "num_outputs": 1,
-        "num_channel_attn": 2,
+        "num_tab": 2,
+        "scale": 0.13,
         
         # load & save checkpoint
         "model_name": "model_maniqa",
+        "output_path": "./output",
         "snap_path": "./output/models/",               # directory for saving checkpoint
         "log_path": "./output/log/maniqa/",
         "log_file": ".txt",
         "tensorboard_path": "./output/tensorboard/"
     })
 
+    if not os.path.exists(config.output_path):
+        os.mkdir(config.output_path)
+
+    if not os.path.exists(config.snap_path):
+        os.mkdir(config.snap_path)
+    
+    if not os.path.exists(config.tensorboard_path):
+        os.mkdir(config.tensorboard_path)
+
     config.snap_path += config.model_name
-    config.tensorboard_path += config.model_name
     config.log_file = config.model_name + config.log_file
+    config.tensorboard_path += config.model_name
 
     set_logging(config)
     logging.info(config)
-    if not os.path.exists(config.tensorboard_path):
-        os.mkdir(config.tensorboard_path)
 
     writer = SummaryWriter(config.tensorboard_path)
 
     # data load
-    train_dataset = PIPAL(
-        ref_path=config.train_ref_path,
+    train_dataset = PIPAL21(
         dis_path=config.train_dis_path,
         txt_file_name=config.train_txt_file_name,
         transform=transforms.Compose(
@@ -196,8 +204,7 @@ if __name__ == '__main__':
             ]
         ),
     )
-    val_dataset = PIPAL(
-        ref_path=config.val_ref_path,
+    val_dataset = PIPAL21(
         dis_path=config.val_dis_path,
         txt_file_name=config.val_txt_file_name,
         transform=transforms.Compose([Normalize(0.5, 0.5), ToTensor()]),
@@ -229,7 +236,8 @@ if __name__ == '__main__':
         window_size=config.window_size,
         depths=config.depths,
         num_heads=config.num_heads,
-        num_channel_attn=config.num_channel_attn
+        num_tab=config.num_tab,
+        scale=config.scale
     )
     net = nn.DataParallel(net)
     net = net.cuda()
@@ -254,7 +262,7 @@ if __name__ == '__main__':
     for epoch in range(0, config.n_epoch):
         start_time = time.time()
         logging.info('Running training epoch {}'.format(epoch + 1))
-        loss_val, rho_s, rho_p = train_epoch(config, epoch, net, criterion, optimizer, scheduler, train_loader)
+        loss_val, rho_s, rho_p = train_epoch(epoch, net, criterion, optimizer, scheduler, train_loader)
 
         writer.add_scalar("Train_loss", loss_val, epoch)
         writer.add_scalar("SRCC", rho_s, epoch)
