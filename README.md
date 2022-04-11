@@ -9,12 +9,12 @@ Our codes are revised from [anse3832](https://github.com/anse3832/MUSIQ).
 The training dataset we use are [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) and the [PIPAL21](https://competitions.codalab.org/competitions/28050#participate) are used for validing. We also did experiments on [LIVE](https://live.ece.utexas.edu/research/Quality/subjective.htm), [CSIQ](https://qualinet.github.io/databases/image/categorical_image_quality_csiq_database/), [TID2013](https://qualinet.github.io/databases/image/tampere_image_database_tid2013/) and [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html) datasets. 
 
 **NOTE:** Put the MOS label and the data python files into **data** folder. 
-## Training MANIQA model
+## Training MANIQA Model
 ```
 # Training MANIQA model, run:
 python train.py
 ```
-## Inference for [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) validing and testing
+## Inference for [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) Validing and Testing
 ```
 # Generating the ouput file, run:
 python inference.py
