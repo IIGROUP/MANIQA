@@ -6,14 +6,14 @@ This repo is for NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2
 
 ## Dataset
 The training dataset we use are [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) and the [PIPAL21](https://competitions.codalab.org/competitions/28050#participate) are used for validing. We also did experiments on [LIVE](https://live.ece.utexas.edu/research/Quality/subjective.htm), [CSIQ](https://qualinet.github.io/databases/image/categorical_image_quality_csiq_database/), [TID2013](https://qualinet.github.io/databases/image/tampere_image_database_tid2013/) and [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html). Put the MOS label and the data python files into **data** folder. 
-## Training for MANIQA model
+## Training MANIQA model
 ```
-# Training MANIQA
+# Training MANIQA model, run:
 python train.py
 ```
 ## Inference for [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) validing and testing
 ```
-# For generating the ouput file
+# Generating the ouput file, run:
 python inference.py
 ```
 ## Environments & Requirements
