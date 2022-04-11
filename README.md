@@ -2,66 +2,20 @@
 
 This repo is for NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition.
 
-**Team name: THU_IIGROUP**
-
 ![image.png](image/pipeline.png)
 
 ## Dataset
-Before running the codes, you should download the PIPAL datasets for [Training](https://drive.google.com/drive/folders/1G4fLeDcq6uQQmYdkjYUHhzyel4Pz81p-?usp=sharing) and [Validing](https://drive.google.com/drive/folders/1w0wFYHj8iQ8FgA9-YaKZLq7HAtykckXn).
-Note that although we load the reference images, we only use the distorted images as input for training and testing.
-
-## Training & Testing & Ensemble
-**NOTE:** You need to download PIPAL [Testing Distorted Images](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) and unzip the file named **"NTIRE2022_NR_Testing_Dis"** to **"Dis"** folder in cureent MANNA path. And create output folder in cureent MANNA path. Place the weights into the output folder like the **MANNA-master path tree** shows.
-```
-├── Dis
-│   └── ... # the PIPAL22 testing dataset
-├── config.py
-├── data
-│   ├── ntire2022.py
-│   ├── pipal.py
-│   ├── PIPAL_train.txt
-│   └── PIPAL_val.txt
-├── ensemble.py
-├── inference.py
-├── models
-│   ├── model_attentionIQA2.py
-│   └── swin.py
-├── output
-│   ├── log
-│   ├── models
-│   │   ├── ensemble_attentionIQA2_finetune
-│   │   │   └── epoch2
-│   │   ├── ensemble_attentionIQA2_finetune_e2
-│   │   │   └── epoch4
-│   │   └── test_model_attentionIQA2
-│   │       └── epoch1
-│   ├── tensorboard
-│   └── valid
-├── generate_output.sh
-├── timm
-│   └── ...
-├── train_attentionIQA2.py
-└── utils
-    ├── eval_process_image.py
-    └── process_image.py
-```
-**ATTENTION**: Before running the codes, please make sure you've changed **the dataset path** in train.py or inference.py.
-
-Training the MANNA model, run:
+The dataset we use are [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) for training and validing. We also use [LIVE](https://live.ece.utexas.edu/research/Quality/subjective.htm), [CSIQ](https://qualinet.github.io/databases/image/categorical_image_quality_csiq_database/), [TID2013](https://qualinet.github.io/databases/image/tampere_image_database_tid2013/) and [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html).
+## Training
+Training the MANIQA model, run:
 ```
 python train.py
 ```
+## Inference
 For generating the ouput file, run:
 ```
 python inference.py
 ```
-
-### Generate Final Results (The results in the [Leaderboard](https://codalab.lisn.upsaclay.fr/competitions/1568#results))
-For ensembling the model and generating the output file, run:
-```
-python ensemble.py or sh generate_output.sh
-```
-
 ## Environments & Requirements
 - Platform: PyTorch 1.8.0
 - Language: Python 3.7.9
