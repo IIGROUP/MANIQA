@@ -1,19 +1,19 @@
-# Multi-Dimension Attention Network for Image Quality Assessment
+# Multi-dimension Attention Network for Image Quality Assessment
 
 This repo is for NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition.
 
 ![image.png](image/pipeline.png)
 
 ## Dataset
-The dataset we use are [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) for training and validing. We also use [LIVE](https://live.ece.utexas.edu/research/Quality/subjective.htm), [CSIQ](https://qualinet.github.io/databases/image/categorical_image_quality_csiq_database/), [TID2013](https://qualinet.github.io/databases/image/tampere_image_database_tid2013/) and [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html).
+The training dataset we use are [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) for training and the [PIPAL21](https://competitions.codalab.org/competitions/28050#participate) are used for validing. We also did experiments on [LIVE](https://live.ece.utexas.edu/research/Quality/subjective.htm), [CSIQ](https://qualinet.github.io/databases/image/categorical_image_quality_csiq_database/), [TID2013](https://qualinet.github.io/databases/image/tampere_image_database_tid2013/) and [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html). Put the MOS label and the data python files into **data** folder. 
 ## Training
-Training the MANIQA model, run:
 ```
+# Training the MANIQA model
 python train.py
 ```
-## Inference
-For generating the ouput file, run:
+## Inference for [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) validing and testing
 ```
+# For generating the ouput file
 python inference.py
 ```
 ## Environments & Requirements
