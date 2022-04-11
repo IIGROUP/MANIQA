@@ -1,6 +1,7 @@
 # Multi-dimension Attention Network for Image Quality Assessment
 
 This repo is for NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition.
+Our codes are revised from [anse3832](https://github.com/anse3832/MUSIQ).
 
 ![image.png](image/pipeline.png)
 
