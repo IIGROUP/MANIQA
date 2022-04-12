@@ -1,6 +1,7 @@
 # MANIQA: Multi-dimension Attention Network for No-Reference Image Quality Assessment
 
 This repo is for NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition.
+We won the first place in the workshop and our work will be released soon.
 
 ![image.png](image/pipeline.png)
 
