@@ -1,7 +1,6 @@
-# Multi-dimension Attention Network for Image Quality Assessment
+# MANIQA: Multi-dimension Attention Network for No-Reference Image Quality Assessment
 
 This repo is for NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition.
-Our codes are revised from [anse3832](https://github.com/anse3832/MUSIQ).
 
 ![image.png](image/pipeline.png)
 
@@ -30,3 +29,6 @@ python inference.py
 ```
 pip install -r requirements.txt
 ```
+## Acknowledgement
+Our codes are revised from [anse3832](https://github.com/anse3832/MUSIQ).
+
