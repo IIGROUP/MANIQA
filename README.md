@@ -11,7 +11,7 @@ The training dataset we use are [PIPAL22](https://codalab.lisn.upsaclay.fr/compe
 ## Training MANIQA Model
 ```
 # Training MANIQA model, run:
-python train.py
+python train_maniqa.py
 ```
 ## Inference for [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) Validing and Testing
 ```
