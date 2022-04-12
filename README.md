@@ -29,6 +29,6 @@ python inference.py
 ```
 pip install -r requirements.txt
 ```
-## Acknowledgement
+## Acknowledgment
 Our codes are revised from [anse3832](https://github.com/anse3832/MUSIQ).
 
