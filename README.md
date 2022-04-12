@@ -11,7 +11,7 @@ The training set is [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568
 **NOTE:**
 + Put the MOS label and the data python files into **data** folder. 
 + The validation dataset comes from NTIRE 2021. If you want to reproduce the results on validation or test set for NTIRE 2022 NR-IQA competition, register the competition and upload the submission.zip by following the instruction on the [website](https://codalab.lisn.upsaclay.fr/competitions/1568#participate).
-
+![image.png](image/results.png)
 ## Training MANIQA Model
 ```
 # Training MANIQA model, run:
