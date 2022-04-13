@@ -45,5 +45,7 @@ pip install -r requirements.txt
 Our codes partially borrowed from [anse3832](https://github.com/anse3832/MUSIQ) and [timm](https://github.com/rwightman/pytorch-image-models).
 
 ## Related Work
-### Full-Reference
-1. [CVPR 2021] [Region-Adaptive Deformable Network for Image Quality Assessment](https://arxiv.org/abs/2104.11599)
+### [NTIRE2021 IQA Full-Reference Competition](https://competitions.codalab.org/competitions/28050#learn_the_details)
+- [CVPR 2021] Region-Adaptive Deformable Network for Image Quality Assessment
+
+### [NTIRE2022 IQA Full-Reference Competition](https://codalab.lisn.upsaclay.fr/competitions/1567)
