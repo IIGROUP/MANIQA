@@ -1,6 +1,6 @@
 # MANIQA: Multi-dimension Attention Network for No-Reference Image Quality Assessment
-This is the official repository for NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition.
-***We won first place in the competition and the codes have been released now.***
+*This is the official repository for NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition.
+**We won first place in the competition and the codes have been released now.***
 
 > **Abstract:** *No-Reference Image Quality Assessment (NR-IQA) aims to assess the perceptual quality of images in accordance with human subjective perception. 
 Meanwhile, generative adversarial networks (GAN) play an important role in restoring and enhancing images than traditional CNN-generated images.
