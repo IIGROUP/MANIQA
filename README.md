@@ -34,5 +34,5 @@ python inference.py
 pip install -r requirements.txt
 ```
 ## Acknowledgment
-Our codes partially borrowed from [anse3832](https://github.com/anse3832/MUSIQ).
+Our codes partially borrowed from [anse3832](https://github.com/anse3832/MUSIQ) and [timm](https://github.com/rwightman/pytorch-image-models).
 
