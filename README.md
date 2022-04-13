@@ -46,4 +46,4 @@ Our codes partially borrowed from [anse3832](https://github.com/anse3832/MUSIQ) 
 
 ## Related Work
 ### Full-Reference
-1. [Region-Adaptive Deformable Network for Image Quality Assessment](https://arxiv.org/abs/2104.11599), CVPR 2021
+1. [CVPR 2021] [Region-Adaptive Deformable Network for Image Quality Assessment](https://arxiv.org/abs/2104.11599)
