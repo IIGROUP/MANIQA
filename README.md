@@ -15,7 +15,7 @@ The training set is [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568
 **NOTE:**
 + Put the MOS label and the data python files into **data** folder. 
 + The validation dataset comes from NTIRE 2021. If you want to reproduce the results on validation or test set for NTIRE 2022 NR-IQA competition, register the competition and upload the submission.zip by following the instruction on the [website](https://codalab.lisn.upsaclay.fr/competitions/1568#participate).
-![image.png](image/results.png)
+
 ## Training
 ```
 # Training MANIQA model, run:
@@ -26,6 +26,9 @@ python train_maniqa.py
 # Generating the ouput file, run:
 python inference.py
 ```
+## Results
+![image.png](image/results.png)
+
 ## Environments
 - Platform: PyTorch 1.8.0
 - Language: Python 3.7.9
@@ -44,6 +47,7 @@ Our codes partially borrowed from [anse3832](https://github.com/anse3832/MUSIQ) 
 
 ## Related Work
 ### [NTIRE2021 IQA Full-Reference Competition](https://competitions.codalab.org/competitions/28050#learn_the_details)
-- [CVPR 2021] Region-Adaptive Deformable Network for Image Quality Assessment
+- [CVPRW 2021] Region-Adaptive Deformable Network for Image Quality Assessment
 
 ### [NTIRE2022 IQA Full-Reference Competition](https://codalab.lisn.upsaclay.fr/competitions/1567)
+- [CVPRW 2022] Attentions Help CNNs See Better: Attention-based Hybrid Image Quality Assessment Network
