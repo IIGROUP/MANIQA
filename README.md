@@ -64,8 +64,11 @@ pip install -r requirements.txt
 Our codes partially borrowed from [anse3832](https://github.com/anse3832/MUSIQ) and [timm](https://github.com/rwightman/pytorch-image-models).
 
 ## Related Work
-### [NTIRE2021 IQA Full-Reference Competition](https://competitions.codalab.org/competitions/28050#learn_the_details)
-- [CVPRW 2021] Region-Adaptive Deformable Network for Image Quality Assessment. (4th place in FR track)
+### NTIRE2021 IQA Full-Reference Competition
+[CVPRW 2021] Region-Adaptive Deformable Network for Image Quality Assessment (4th place in FR track)
 
-### [NTIRE2022 IQA Full-Reference Competition](https://codalab.lisn.upsaclay.fr/competitions/1567)
-- [CVPRW 2022] Attentions Help CNNs See Better: Attention-based Hybrid Image Quality Assessment Network. (1th place in FR track)
+[![paper](https://img.shields.io/badge/arXiv-Paper-green.svg)](https://arxiv.org/abs/2104.11599)
+[![code](https://img.shields.io/badge/code-github-red.svg)](https://github.com/IIGROUP/RADN)
+
+### NTIRE2022 IQA Full-Reference Competition
+[CVPRW 2022] Attentions Help CNNs See Better: Attention-based Hybrid Image Quality Assessment Network. (1th place in FR track)
