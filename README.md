@@ -46,6 +46,20 @@ python inference.py
 pip install -r requirements.txt
 ```
 
+## Citation
+```
+@misc{https://doi.org/10.48550/arxiv.2204.08958,
+  doi = {10.48550/ARXIV.2204.08958},
+  url = {https://arxiv.org/abs/2204.08958},
+  author = {Yang, Sidi and Wu, Tianhe and Shi, Shuwei and Gong, Shanshan Lao Yuan and Cao, Mingdeng and Wang, Jiahao and Yang, Yujiu},
+  keywords = {Computer Vision and Pattern Recognition (cs.CV), Image and Video Processing (eess.IV), FOS: Computer and information sciences, FOS: Computer and information sciences, FOS: Electrical engineering, electronic engineering, information engineering, FOS: Electrical engineering, electronic engineering, information engineering},
+  title = {MANIQA: Multi-dimension Attention Network for No-Reference Image Quality Assessment},
+  publisher = {arXiv},
+  year = {2022},
+  copyright = {Creative Commons Attribution 4.0 International}
+}
+```
+
 ## Acknowledgment
 Our codes partially borrowed from [anse3832](https://github.com/anse3832/MUSIQ) and [timm](https://github.com/rwightman/pytorch-image-models).
 
