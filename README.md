@@ -4,6 +4,7 @@
 
 [![paper](https://img.shields.io/badge/arXiv-Paper-green.svg)](https://arxiv.org/abs/2204.08958)
 [![IIGROUP](https://img.shields.io/badge/IIGROUP-Lab-red.svg)](https://github.com/IIGROUP)
+[![pretrained model](https://img.shields.io/badge/Model-CKPT-yellow.svg)](https://github.com/IIGROUP/MANIQA/releases/tag/PIPAL22-VALID-CKPT)
 
 *This is the official repository for NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition.
 **We won first place in the competition and the codes have been released now.***
@@ -21,13 +22,19 @@ The training set is [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568
 + The validation dataset comes from NTIRE 2021. If you want to reproduce the results on validation or test set for NTIRE 2022 NR-IQA competition, register the competition and upload the submission.zip by following the instruction on the [website](https://codalab.lisn.upsaclay.fr/competitions/1568#participate).
 
 ## Training
+Training MANIQA model:
 ```
-# Training MANIQA model, run:
+# Modify train dataset path (PIPAL22 training dataset): "train_dis_path"
+# Modify validation dataset path (PIPAL21 validation dataset): "val_dis_path"
+
 python train_maniqa.py
 ```
 ## Inference for [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) Validing and Testing
+Generating the ouput file:
 ```
-# Generating the ouput file, run:
+# Modify the path of dataset "test_dis_path"
+# Modify the trained model path "model_path"
+
 python inference.py
 ```
 ## Results
