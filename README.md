@@ -24,7 +24,7 @@ The training set is [PIPAL22](https://codalab.lisn.upsaclay.fr/competitions/1568
 ## Training
 Training MANIQA model:
 ```
-# Modify train dataset path (PIPAL22 training dataset): "train_dis_path"
+# Modify train dataset path (PIPAL21 training dataset (PIPAL21 training dataset is same as PIPAL22)): "train_dis_path"
 # Modify validation dataset path (PIPAL21 validation dataset): "val_dis_path"
 
 python train_maniqa.py
