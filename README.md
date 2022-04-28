@@ -79,3 +79,6 @@ Our codes partially borrowed from [anse3832](https://github.com/anse3832/MUSIQ) 
 
 ### NTIRE2022 IQA Full-Reference Competition
 [CVPRW 2022] Attentions Help CNNs See Better: Attention-based Hybrid Image Quality Assessment Network. (1th place in FR track)
+
+[![paper](https://img.shields.io/badge/arXiv-Paper-green.svg)](https://arxiv.org/abs/2204.10485)
+[![code](https://img.shields.io/badge/code-github-red.svg)](https://github.com/IIGROUP/AHIQ)
