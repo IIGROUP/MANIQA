@@ -55,10 +55,11 @@ pip install -r requirements.txt
 
 ## Citation
 ```
-@article{yang2022maniqa,
+@inproceedings{yang2022maniqa,
   title={MANIQA: Multi-dimension Attention Network for No-Reference Image Quality Assessment},
-  author={Yang, Sidi and Wu, Tianhe and Shi, Shuwei and Gong, Yuan and Lao, Shanshan and Cao, Mingdeng and Wang, Jiahao and Yang, Yujiu},
-  journal={arXiv preprint arXiv:2204.08958},
+  author={Yang, Sidi and Wu, Tianhe and Shi, Shuwei and Lao, Shanshan and Gong, Yuan and Cao, Mingdeng and Wang, Jiahao and Yang, Yujiu},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={1191--1200},
   year={2022}
 }
 ```
