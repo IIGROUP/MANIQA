@@ -15,7 +15,7 @@ Sidi Yang*, Tianhe Wu*, Shuwei Shi, Shanshan Lao, Yuan Gong, Mingdeng Cao, Jiaha
 [![GitHub Stars](https://img.shields.io/github/stars/IIGROUP/MANIQA?style=social)](https://github.com/IIGROUP/MANIQA)
 
 
-This repository is the official PyTorch implementation of MANIQA: Multi-dimension Attention Network for No-Reference Image Quality Assessment. We won first place in the **NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition**.
+This repository is the official PyTorch implementation of MANIQA: Multi-dimension Attention Network for No-Reference Image Quality Assessment. :fire::fire::fire:We won first place in the **NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition**.
 
 [![pretrained model](https://img.shields.io/badge/Model-PIPAL22_checkpoint-yellow.svg)](https://github.com/IIGROUP/MANIQA/releases/tag/PIPAL22-VALID-CKPT)
 
