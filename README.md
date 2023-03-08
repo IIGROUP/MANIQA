@@ -1,6 +1,6 @@
 # MANIQA: Multi-dimension Attention Network for No-Reference Image Quality Assessment
 
-Sidi Yang*, [Tianhe Wu*](https://scholar.google.com/citations?user=QW1JtysAAAAJ&hl=en&oi=ao), Shuwei Shi, Shanshan Lao, Yuan Gong, Mingdeng Cao, Jiahao Wang and Yujiu Yang
+Sidi Yang*, Tianhe Wu*, Shuwei Shi, Shanshan Lao, Yuan Gong, Mingdeng Cao, Jiahao Wang and Yujiu Yang
 
 [Tsinghua University, Intelligent Interaction Group](https://sites.google.com/view/iigroup-thu/home)
 
