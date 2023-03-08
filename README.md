@@ -1,19 +1,24 @@
 # MANIQA: Multi-dimension Attention Network for No-Reference Image Quality Assessment
 
-**Authors: Sidi Yang, Tianhe Wu, Shuwei Shi, Shanshan Lao, Yuan Gong, Mingdeng Cao, Jiahao Wang and Yujiu Yang**
+Sidi Yang*, [Tianhe Wu*](https://scholar.google.com/citations?user=QW1JtysAAAAJ&hl=en&oi=ao), Shuwei Shi, Shanshan Lao, Yuan Gong, Mingdeng Cao, Jiahao Wang and Yujiu Yang
+
+[Tsinghua University, Intelligent Interaction Group](https://sites.google.com/view/iigroup-thu/home)
 
 :rocket:  :rocket:  :rocket: **News:**
 - [2023-3-8]We decide to open the large dataset (such as kadid10k) model checkpoints. In the future, we will refine some details about this model to make it more flexible.
 
 [![paper](https://img.shields.io/badge/arXiv-Paper-green.svg)](https://arxiv.org/abs/2204.08958)
+[![download](https://img.shields.io/github/downloads/IIGROUP/MANIQA/total.svg)](https://github.com/IIGROUP/MANIQA/releases)
 [![IIGROUP](https://img.shields.io/badge/IIGROUP-Lab-red.svg)](https://github.com/IIGROUP)
+![visitors](https://visitor-badge.glitch.me/badge?page_id=IIGROUP/MANIQA)
 [![GitHub Stars](https://img.shields.io/github/stars/IIGROUP/MANIQA?style=social)](https://github.com/IIGROUP/MANIQA)
+
+
+This repository is the official PyTorch implementation of MANIQA: Multi-dimension Attention Network for No-Reference Image Quality Assessment. We won first place in the **NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition**.
+
 [![pretrained model](https://img.shields.io/badge/Model-PIPAL22_checkpoint-yellow.svg)](https://github.com/IIGROUP/MANIQA/releases/tag/PIPAL22-VALID-CKPT)
 
-*This is the official repository for NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition.
-**We won first place in the competition and the codes have been released now.***
-
-> **Abstract:** *No-Reference Image Quality Assessment (NR-IQA) aims to assess the perceptual quality of images in accordance with human subjective perception. Unfortunately, existing NR-IQA methods are far from meeting the needs of predicting accurate quality scores on GAN-based distortion images. To this end, we propose Multi-dimension Attention Network for no-reference Image Quality Assessment (MANIQA) to improve the performance on GAN-based distortion. We firstly extract features via ViT, then to strengthen global and local interactions, we propose the Transposed Attention Block (TAB) and the Scale Swin Transformer Block (SSTB). These two modules apply attention mechanisms across the channel and spatial dimension, respectively. In this multi-dimensional manner, the modules cooperatively increase the interaction among different regions of images globally and locally. Finally, a dual branch structure for patch-weighted quality prediction is applied to predict the final score depending on the weight of each patch's score. Experimental results demonstrate that MANIQA outperforms state-of-the-art methods on four standard datasets (LIVE, TID2013, CSIQ, and KADID-10K) by a large margin. Besides, our method ranked first place in the final testing phase of the NTIRE 2022 Perceptual Image Quality Assessment Challenge Track 2: No-Reference.* 
+> *No-Reference Image Quality Assessment (NR-IQA) aims to assess the perceptual quality of images in accordance with human subjective perception. Unfortunately, existing NR-IQA methods are far from meeting the needs of predicting accurate quality scores on GAN-based distortion images. To this end, we propose Multi-dimension Attention Network for no-reference Image Quality Assessment (MANIQA) to improve the performance on GAN-based distortion. We firstly extract features via ViT, then to strengthen global and local interactions, we propose the Transposed Attention Block (TAB) and the Scale Swin Transformer Block (SSTB). These two modules apply attention mechanisms across the channel and spatial dimension, respectively. In this multi-dimensional manner, the modules cooperatively increase the interaction among different regions of images globally and locally. Finally, a dual branch structure for patch-weighted quality prediction is applied to predict the final score depending on the weight of each patch's score. Experimental results demonstrate that MANIQA outperforms state-of-the-art methods on four standard datasets (LIVE, TID2013, CSIQ, and KADID-10K) by a large margin. Besides, our method ranked first place in the final testing phase of the NTIRE 2022 Perceptual Image Quality Assessment Challenge Track 2: No-Reference.* 
 
 ## Network Architecture
 ![image.png](image/pipeline.png)
