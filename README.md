@@ -2,6 +2,8 @@
 
 **Authors: Sidi Yang, Tianhe Wu, Shuwei Shi, Shanshan Lao, Yuan Gong, Mingdeng Cao, Jiahao Wang and Yujiu Yang**
 
+**We decide to open the large dataset (such as kadid10k) model checkpoints. In the future, we will refine some details about this model to make it more flexible.**
+
 [![paper](https://img.shields.io/badge/arXiv-Paper-green.svg)](https://arxiv.org/abs/2204.08958)
 [![IIGROUP](https://img.shields.io/badge/IIGROUP-Lab-red.svg)](https://github.com/IIGROUP)
 [![pretrained model](https://img.shields.io/badge/Model-CKPT-yellow.svg)](https://github.com/IIGROUP/MANIQA/releases/tag/PIPAL22-VALID-CKPT)
