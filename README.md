@@ -5,7 +5,8 @@ Sidi Yang*, Tianhe Wu*, Shuwei Shi, Shanshan Lao, Yuan Gong, Mingdeng Cao, Jiaha
 [Tsinghua University, Intelligent Interaction Group](https://sites.google.com/view/iigroup-thu/home)
 
 :rocket:  :rocket:  :rocket: **News:**
-- [2023-3-8]We decide to open the large dataset (such as kadid10k) model checkpoints. In the future, we will refine some details about this model to make it more flexible.
+- **Mar. 9, 2023**: We decide to open the large dataset (such as kadid10k) model checkpoints. In the future, we will refine some details about this model to make it more flexible.
+- **April. 11, 2022**: We release the MANIQA source code and the checkpoint of PIPAL22.
 
 [![paper](https://img.shields.io/badge/arXiv-Paper-green.svg)](https://arxiv.org/abs/2204.08958)
 [![download](https://img.shields.io/github/downloads/IIGROUP/MANIQA/total.svg)](https://github.com/IIGROUP/MANIQA/releases)
