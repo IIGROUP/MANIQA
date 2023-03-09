@@ -154,20 +154,48 @@ class Normalize(object):
 
 
 class RandHorizontalFlip(object):
-    def __init__(self):
-        pass
+    def __init__(self, prob_aug):
+        self.prob_aug = prob_aug
 
     def __call__(self, sample):
         d_img = sample['d_img_org']
         score = sample['score']
-        prob_lr = np.random.random()
-        # np.fliplr needs HxWxC
+
+        p_aug = np.array([self.prob_aug, 1 - self.prob_aug])
+        prob_lr = np.random.choice([1, 0], p=p_aug.ravel())
+
         if prob_lr > 0.5:
             d_img = np.fliplr(d_img).copy()
         
         sample = {
             'd_img_org': d_img,
             'score': score
+        }
+        return sample
+
+
+class RandRotation(object):
+    def __init__(self, prob_aug=0.5):
+        self.prob_aug = prob_aug
+        self.aug_count = 0
+
+    def __call__(self, sample):
+        d_img = sample['d_img_org']
+        score = sample['score']
+
+        p_aug = np.array([self.prob_aug, 1 - self.prob_aug])
+        prob_lr = np.random.choice([1, 0], p=p_aug.ravel())
+
+        if prob_lr > 0.5:
+            p = np.array([0.33, 0.33, 0.34])
+            idx = np.random.choice([1, 2, 3], p=p.ravel())
+            d_img = np.rot90(d_img, idx, axes=(1, 2)).copy()
+            self.aug_count += 1
+        
+        sample = {
+            'd_img_org': d_img,
+            'score': score,
+            'aug_count': self.aug_count
         }
         return sample
 

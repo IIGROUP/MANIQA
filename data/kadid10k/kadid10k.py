@@ -1,12 +1,12 @@
 import os
 import torch
 import numpy as np
-import cv2 
+import cv2
 
 
-class PIPAL21(torch.utils.data.Dataset):
-    def __init__(self, dis_path, txt_file_name, transform):
-        super(PIPAL21, self).__init__()
+class Kadid10k(torch.utils.data.Dataset):
+    def __init__(self, dis_path, txt_file_name, list_name, transform, keep_ratio):
+        super(Kadid10k, self).__init__()
         self.dis_path = dis_path
         self.txt_file_name = txt_file_name
         self.transform = transform
@@ -16,15 +16,15 @@ class PIPAL21(torch.utils.data.Dataset):
             for line in listFile:
                 dis, score = line.split()
                 dis = dis[:-1]
-                score = float(score)
-                dis_files_data.append(dis)
-                score_data.append(score)
+                if dis[1:3] in list_name:
+                    score = float(score)
+                    dis_files_data.append(dis)
+                    score_data.append(score)
 
         # reshape score_list (1xn -> nx1)
         score_data = np.array(score_data)
         score_data = self.normalization(score_data)
         score_data = score_data.astype('float').reshape(-1, 1)
-
         self.data_dict = {'d_img_list': dis_files_data, 'score_list': score_data}
 
     def normalization(self, data):
