@@ -2,20 +2,30 @@
 
 Sidi Yang*, Tianhe Wu*, Shuwei Shi, Shanshan Lao, Yuan Gong, Mingdeng Cao, Jiahao Wang and Yujiu Yang
 
-[Tsinghua University, Intelligent Interaction Group](https://sites.google.com/view/iigroup-thu/home)
+[Tsinghua University Intelligent Interaction Group](https://sites.google.com/view/iigroup-thu/home)
 
-:rocket:  :rocket:  :rocket: **News:**
-- **Mar. 9, 2023**: We decide to open the large dataset (such as kadid10k) model checkpoints. In the future, we will refine some details about this model to make it more flexible.
-- **April. 11, 2022**: We release the MANIQA source code and the checkpoint of PIPAL22.
+:rocket:  :rocket:  :rocket: **Updates:**
+- **Mar. 09, 2023**: We decide to open the large dataset (such as kadid10k) model checkpoints. In the future, we will refine some details about this model to make it more flexible.
+- ✅ **April. 11, 2022**: We release the MANIQA source code and the checkpoint of PIPAL22.
 
 [![paper](https://img.shields.io/badge/arXiv-Paper-green.svg)](https://arxiv.org/abs/2204.08958)
 [![download](https://img.shields.io/github/downloads/IIGROUP/MANIQA/total.svg)](https://github.com/IIGROUP/MANIQA/releases)
-[![IIGROUP](https://img.shields.io/badge/IIGROUP-Lab-red.svg)](https://github.com/IIGROUP)
+[![Open issue](https://img.shields.io/github/issues/IIGROUP/MANIQA)](https://github.com/IIGROUP/MANIQA/issues)
+[![Closed issue](https://img.shields.io/github/issues-closed/IIGROUP/MANIQA)](https://github.com/IIGROUP/MANIQA/issues)
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=IIGROUP/MANIQA)
+[![IIGROUP](https://img.shields.io/badge/IIGROUP-github-red.svg)](https://github.com/IIGROUP)
 [![GitHub Stars](https://img.shields.io/github/stars/IIGROUP/MANIQA?style=social)](https://github.com/IIGROUP/MANIQA)
 
 
-This repository is the official PyTorch implementation of MANIQA: Multi-dimension Attention Network for No-Reference Image Quality Assessment. :fire::fire::fire:We won first place in the **NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition**.
+This repository is the official PyTorch implementation of MANIQA: Multi-dimension Attention Network for No-Reference Image Quality Assessment. :fire::fire::fire: We won first place in the **NTIRE2022 Perceptual Image Quality Assessment Challenge Track 2 No-Reference competition**.
+
+
+
+
+
+
+
+
 
 [![pretrained model](https://img.shields.io/badge/Model-PIPAL22_checkpoint-yellow.svg)](https://github.com/IIGROUP/MANIQA/releases/tag/PIPAL22-VALID-CKPT)
 
