@@ -6,7 +6,7 @@ Sidi Yang*, Tianhe Wu*, Shuwei Shi, Shanshan Lao, Yuan Gong, Mingdeng Cao, Jiaha
 
 :rocket:  :rocket:  :rocket: **Updates:**
 - Tid2013 checkpoint will be released soon.
-- ✅ **Mar. 10, 2023**: We release the large dataset (kadid10k) model checkpoint and add the **predicting one image files**.
+- ✅ **Mar. 10, 2023**: We release the large dataset (kadid10k) checkpoint and add the **predicting one image files**.
 - ✅ **April. 11, 2022**: We release the MANIQA source code and the checkpoint of PIPAL22.
 
 [![paper](https://img.shields.io/badge/arXiv-Paper-green.svg)](https://arxiv.org/abs/2204.08958)
