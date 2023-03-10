@@ -5,7 +5,8 @@ Sidi Yang*, Tianhe Wu*, Shuwei Shi, Shanshan Lao, Yuan Gong, Mingdeng Cao, Jiaha
 [Tsinghua University Intelligent Interaction Group](https://sites.google.com/view/iigroup-thu/home)
 
 :rocket:  :rocket:  :rocket: **Updates:**
-- **Mar. 09, 2023**: We decide to open the large dataset (such as kadid10k) model checkpoints. In the future, we will refine some details about this model to make it more flexible.
+- Tid2013 checkpoint will be released soon.
+- ✅ **Mar. 10, 2023**: We release the large dataset (kadid10k) model checkpoint and add the **predicting one image files**.
 - ✅ **April. 11, 2022**: We release the MANIQA source code and the checkpoint of PIPAL22.
 
 [![paper](https://img.shields.io/badge/arXiv-Paper-green.svg)](https://arxiv.org/abs/2204.08958)
@@ -22,9 +23,12 @@ This repository is the official PyTorch implementation of MANIQA: Multi-dimensio
 
 |Ground Truth|Distortion 1|Distortion 2|Distortion 3|Distortion 4|
 |       :---:       |     :---:        |        :-----:         |        :-----:         |        :-----:         | 
-| <img width="200" src="image/GT.png">|<img width="200" src="image/dis1.png">|<img width="200" src="image/dis2.png">|<img width="200" src="image/dis3.png">|<img width="200" src="image/dis4.png">
-|**MOS (GT)**|**1539.1452 (1)**|**1371.4593 (2)**|**1223.4258 (3)**|**1179.6223  (4)**|
+| <img width="200" src="image/GT.png">|<img width="200" src="image/dis1.png">|<img width="200" src="image/dis2.png">|<img width="200" src="image/dis3.png">|<img width="200" src="image/dis4.png">|
+|**MOS (GT)**|**1539.1452 (1)**|**1371.4593 (2)**|**1223.4258 (3)**|**1179.6223 (4)**|
 |**Ours (MANIQA)**|**0.743674 (1)**|**0.625845 (2)**|**0.504243 (3)**|**0.423222 (4)**|
+| <img width="200" src="image/I01.png">|<img width="200" src="image/I01_01_02.png">|<img width="200" src="image/I01_06_05.png">|<img width="200" src="image/I01_15_05.png">|<img width="200" src="image/I01_01_05.png">|
+|**MOS (GT)**|**4.33 (1)**|**2.27 (2)**|**1.33 (3)**|**1.1 (4)**|
+|**Ours (MANIQA)**|**0.8141 (1)**|**0.2615 (2)**|**0.0871 (3)**|**0.0490 (4)**|
 
 ---
 
