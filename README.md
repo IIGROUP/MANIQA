@@ -23,9 +23,8 @@ This repository is the official PyTorch implementation of MANIQA: Multi-dimensio
 |Ground Truth|Distortion 1|Distortion 2|Distortion 3|Distortion 4|
 |       :---:       |     :---:        |        :-----:         |        :-----:         |        :-----:         | 
 | <img width="200" src="image/GT.png">|<img width="200" src="image/dis1.png">|<img width="200" src="image/dis2.png">|<img width="200" src="image/dis3.png">|<img width="200" src="image/dis4.png">
-|**MOS**|**0.743674 (1)**|**0.625845 (2)**|**0.504243 (3)**|**0.423222 (4)**|
-|**Predict**|**1539.1452 (1)**|**1371.4593 (2)**|**1223.4258 (3)**|**1179.6223  (4)**|
-
+|**MOS (GT)**|**1539.1452 (1)**|**1371.4593 (2)**|**1223.4258 (3)**|**1179.6223  (4)**|
+|**Ours (MANIQA)**|**0.743674 (1)**|**0.625845 (2)**|**0.504243 (3)**|**0.423222 (4)**|
 
 ---
 
