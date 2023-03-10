@@ -3,5 +3,8 @@ __pycache__
 Dis/
 
 *.zip
+*.pt
 
 output/
+
+test_images/
