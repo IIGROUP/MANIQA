@@ -5,7 +5,7 @@ Sidi Yang*, Tianhe Wu*, Shuwei Shi, Shanshan Lao, Yuan Gong, Mingdeng Cao, Jiaha
 [Tsinghua University Intelligent Interaction Group](https://sites.google.com/view/iigroup-thu/home)
 
 :rocket:  :rocket:  :rocket: **Updates:**
-- Tid2013 checkpoint will be released soon.
+- Koniq10k checkpoint will be released soon.
 - ✅ **Mar. 10, 2023**: We release the large dataset (kadid10k) checkpoint and add the **predicting one image files**.
 - ✅ **April. 11, 2022**: We release the MANIQA source code and the checkpoint of PIPAL22.
 
