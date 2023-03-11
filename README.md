@@ -5,7 +5,8 @@ Sidi Yang*, Tianhe Wu*, Shuwei Shi, Shanshan Lao, Yuan Gong, Mingdeng Cao, Jiaha
 [Tsinghua University Intelligent Interaction Group](https://sites.google.com/view/iigroup-thu/home)
 
 :rocket:  :rocket:  :rocket: **Updates:**
-- Koniq10k checkpoint will be released soon.
+- something more...
+- ✅ **Mar. 11, 2023**: Model trained with Koniq10k dataset checkpoint has be released.
 - ✅ **Mar. 10, 2023**: We release the large dataset (kadid10k) checkpoint and add the **predicting one image files**.
 - ✅ **April. 11, 2022**: We release the MANIQA source code and the checkpoint of PIPAL22.
 
@@ -29,6 +30,10 @@ This repository is the official PyTorch implementation of MANIQA: Multi-dimensio
 | <img width="200" src="image/I01.png">|<img width="200" src="image/I01_01_02.png">|<img width="200" src="image/I01_06_05.png">|<img width="200" src="image/I01_15_05.png">|<img width="200" src="image/I01_01_05.png">|
 |**MOS (GT)**|**4.33 (1)**|**2.27 (2)**|**1.33 (3)**|**1.1 (4)**|
 |**Ours (MANIQA)**|**0.8141 (1)**|**0.2615 (2)**|**0.0871 (3)**|**0.0490 (4)**|
+| <img width="200" src="image/kunkun.png">|<img width="200" src="image/bird.jpg">|<img width="200" src="image/dog.jpg">|<img width="200" src="image/ball.jpg">|<img width="200" src="image/people.jpg">|
+|**Model: 0.3398**|**Model: 0.2612**|**Model: 0.3078**|**Model: 0.3716**|**Model: 0.3581**|
+
+
 
 ---
 
@@ -47,11 +52,13 @@ We also conducted experiments on [LIVE](https://live.ece.utexas.edu/research/Qua
 - The validation dataset comes from NTIRE 2021. If you want to reproduce the results on validation or test set for NTIRE 2022 NR-IQA competition, register the competition and upload the submission.zip by following the instruction on the [website](https://codalab.lisn.upsaclay.fr/competitions/1568#participate).
 
 ## Checkpoints
+
+Click into the website and download the pretrained model checkpoints, ignoring the source files (tag Koniq-10k has the latest source file).
 | Training Set | Testing Set|        Checkpoints of MANIQA     | 
 | :---:        |     :---:      |:---:      |
 |[PIPAL2022](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) dataset (200 reference images, 23200 distortion images, MOS scores for each distortion image) | [Validation] [PIPAL2022](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) dataset (1650 distortion images) |[download](https://github.com/IIGROUP/MANIQA/releases/tag/PIPAL22-VALID-CKPT) <br /> SRCC:0.686, PLCC:0.707|
 | [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html) dataset (81 reference images and 10125 distorted images). 8000 distorted images for training | [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html) dataset. 2125 distorted images for testing |[download](https://github.com/IIGROUP/MANIQA/releases/tag/Kadid10k)<br />SRCC:0.939, PLCC:0.939|
-| [KONIQ-10K](http://database.mmsp-kn.de/koniq-10k-database.html) dataset (in-the-wild database, consisting of 10,073 quality scored images). 8058 distorted images for training | [KONIQ-10K](http://database.mmsp-kn.de/koniq-10k-database.html) dataset. 2015 distorted images for testing |[download]()<br />SRCC:0.930, PLCC:0.946|
+| [KONIQ-10K](http://database.mmsp-kn.de/koniq-10k-database.html) dataset (in-the-wild database, consisting of 10,073 quality scored images). 8058 distorted images for training | [KONIQ-10K](http://database.mmsp-kn.de/koniq-10k-database.html) dataset. 2015 distorted images for testing |[download](https://github.com/IIGROUP/MANIQA/releases/tag/Koniq10k)<br />SRCC:0.930, PLCC:0.946|
 
 
 ## Usage
