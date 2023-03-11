@@ -41,6 +41,25 @@ def five_point_crop(idx, d_img, config):
     return d_img_org
 
 
+def split_dataset_koniq10k(txt_file_name, split_seed=20):
+    np.random.seed(split_seed)
+    object_data = []
+    with open(txt_file_name, 'r') as listFile:
+        for line in listFile:
+            dis, score = line.split()
+            dis = dis
+            if dis not in object_data:
+                object_data.append(dis)
+    
+    np.random.shuffle(object_data)
+    np.random.seed(20)
+
+    l = len(object_data)
+    train_name = object_data[:int(l * 0.8)]
+    val_name = object_data[int(l * 0.8):]
+    return train_name, val_name
+
+
 def split_dataset_kadid10k(txt_file_name, split_seed=20):
     np.random.seed(split_seed)
     object_data = []
@@ -128,9 +147,13 @@ class RandCrop(object):
         new_h = self.patch_size
         new_w = self.patch_size
         
-        top = np.random.randint(0, h - new_h)
-        left = np.random.randint(0, w - new_w)
-        ret_d_img = d_img[:, top: top + new_h, left: left + new_w]
+        # For koniq10k
+        if h == new_h and w == new_w:
+            ret_d_img = d_img
+        else:
+            top = np.random.randint(0, h - new_h)
+            left = np.random.randint(0, w - new_w)
+            ret_d_img = d_img[:, top: top + new_h, left: left + new_w]
 
         sample = {
             'd_img_org': ret_d_img,

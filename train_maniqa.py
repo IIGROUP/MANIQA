@@ -10,7 +10,8 @@ from torchvision import transforms
 from torch.utils.data import DataLoader
 from models.maniqa import MANIQA
 from config import Config
-from utils.process import RandCrop, ToTensor, Normalize, five_point_crop, split_dataset_kadid10k
+from utils.process import RandCrop, ToTensor, Normalize, five_point_crop
+from utils.process import split_dataset_kadid10k, split_dataset_koniq10k
 from utils.process import RandRotation, RandHorizontalFlip
 from scipy.stats import spearmanr, pearsonr
 from torch.utils.tensorboard import SummaryWriter 
@@ -132,14 +133,22 @@ if __name__ == '__main__':
     # config file
     config = Config({
         # dataset path
-        "dataset_name": "kadid10k",
-        "train_dis_path": "/mnt/IQA_dataset/PIPAL22/Train_dis/",
-        "val_dis_path": "/mnt/IQA_dataset/PIPAL22/Val_dis/",
-        "kadid10k_path": "/mnt/IQA_dataset/kadid10k/images/",
-        "kadid10k_label": "./data/kadid10k/kadid10k_label.txt",
-        "pipal22_train_label": "./data/PIPAL22/pipal22_train.txt",
-        "pipal21_val_txt_label": "./data/PIPAL22/pipal21_val.txt",
+        "dataset_name": "koniq10k",
 
+        # PIPAL
+        "train_dis_path": "/mnt/cpath2/lf2/IQA_dataset/PIPAL22/Train_dis/",
+        "val_dis_path": "/mnt/cpath2/lf2/IQA_dataset/PIPAL22/Val_dis/",
+        "pipal22_train_label": "./data/PIPAL22/pipal22_train.txt",
+        "pipal22_val_txt_label": "./data/PIPAL22/pipal22_val.txt",
+
+        # KADID-10K
+        "kadid10k_path": "/mnt/cpath2/lf2/IQA_dataset/kadid10k/images/",
+        "kadid10k_label": "./data/kadid10k/kadid10k_label.txt",
+
+        # KONIQ-10K
+        "koniq10k_path": "/mnt/cpath2/lf2/IQA_dataset/1024x768/",
+        "koniq10k_label": "./data/koniq10k/koniq10k_label.txt",
+        
         # optimization
         "batch_size": 8,
         "learning_rate": 1e-5,
@@ -148,7 +157,7 @@ if __name__ == '__main__':
         "val_freq": 1,
         "T_max": 50,
         "eta_min": 0,
-        "num_avg_val": 5,
+        "num_avg_val": 1, # if training koniq10k, num_avg_val is set to 1
         "num_workers": 8,
         
         # data
@@ -156,7 +165,7 @@ if __name__ == '__main__':
         "train_keep_ratio": 1.0,
         "val_keep_ratio": 1.0,
         "crop_size": 224,
-        "prob_aug": 0.5,
+        "prob_aug": 0.7,
 
         # model
         "patch_size": 8,
@@ -171,8 +180,8 @@ if __name__ == '__main__':
         "scale": 0.8,
         
         # load & save checkpoint
-        "model_name": "kadid10k-base",
-        "type_name": "Kadid10k",
+        "model_name": "koniq10k-base_s20",
+        "type_name": "Koniq10k",
         "ckpt_path": "./output/models/",               # directory for saving checkpoint
         "log_path": "./output/log/",
         "log_file": ".log",
@@ -210,7 +219,6 @@ if __name__ == '__main__':
         label_train_path = config.kadid10k_label
         label_val_path = config.kadid10k_label
         Dataset = Kadid10k
-    
     elif config.dataset_name == 'pipal':
         from data.PIPAL22.pipal import PIPAL
         dis_train_path = config.train_dis_path
@@ -218,6 +226,17 @@ if __name__ == '__main__':
         label_train_path = config.pipal22_train_label
         label_val_path = config.pipal22_val_txt_label
         Dataset = PIPAL
+    elif config.dataset_name == 'koniq10k':
+        from data.koniq10k.koniq10k import Koniq10k
+        train_name, val_name = split_dataset_koniq10k(
+            txt_file_name=config.koniq10k_label,
+            split_seed=config.split_seed
+        )
+        dis_train_path = config.koniq10k_path
+        dis_val_path = config.koniq10k_path
+        label_train_path = config.koniq10k_label
+        label_val_path = config.koniq10k_label
+        Dataset = Koniq10k
     else:
         pass
     

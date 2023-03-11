@@ -72,7 +72,7 @@ if __name__ == '__main__':
     # config file
     config = Config({
         # image path
-        "image_path": "./test_images/I01_01_05.png",
+        "image_path": "./test_images/I01_15_05.png",
 
         # valid times
         "num_crops": 20,
