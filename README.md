@@ -47,10 +47,12 @@ We also conducted experiments on [LIVE](https://live.ece.utexas.edu/research/Qua
 - The validation dataset comes from NTIRE 2021. If you want to reproduce the results on validation or test set for NTIRE 2022 NR-IQA competition, register the competition and upload the submission.zip by following the instruction on the [website](https://codalab.lisn.upsaclay.fr/competitions/1568#participate).
 
 ## Checkpoints
-| Training Set | Testing Set|        Pretrained Model of MANIQA     | 
+| Training Set | Testing Set|        Checkpoints of MANIQA     | 
 | :---:        |     :---:      |:---:      |
-|[PIPAL2022](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) dataset (200 reference images, 23200 distortion images, MOS scores for each distortion image) | [Validation] [PIPAL2022](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) dataset (1650 distortion images) |[![pretrained model](https://img.shields.io/badge/Model-PIPAL22_checkpoint-yellow.svg)](https://github.com/IIGROUP/MANIQA/releases/tag/PIPAL22-VALID-CKPT)<br />SRCC:0.686, PLCC:0.707|
-| [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html) dataset (81 reference images and 10125 distorted images). 8000 distorted images for training | [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html) dataset. 2125 distorted images for testing |[![pretrained model](https://img.shields.io/badge/Model-KADID10K_Checkpoint-yellow.svg)](https://github.com/IIGROUP/MANIQA/releases/tag/Kadid10k)<br />SRCC:0.939, PLCC:0.939|
+|[PIPAL2022](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) dataset (200 reference images, 23200 distortion images, MOS scores for each distortion image) | [Validation] [PIPAL2022](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) dataset (1650 distortion images) |[download](https://github.com/IIGROUP/MANIQA/releases/tag/PIPAL22-VALID-CKPT) <br /> SRCC:0.686, PLCC:0.707|
+| [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html) dataset (81 reference images and 10125 distorted images). 8000 distorted images for training | [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html) dataset. 2125 distorted images for testing |[download](https://github.com/IIGROUP/MANIQA/releases/tag/Kadid10k)<br />SRCC:0.939, PLCC:0.939|
+| [KONIQ-10K](http://database.mmsp-kn.de/koniq-10k-database.html) dataset (in-the-wild database, consisting of 10,073 quality scored images). 8058 distorted images for training | [KONIQ-10K](http://database.mmsp-kn.de/koniq-10k-database.html) dataset. 2015 distorted images for testing |[download]()<br />SRCC:0.930, PLCC:0.946|
+
 
 ## Usage
 ### Training MANIQA model
