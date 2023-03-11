@@ -49,8 +49,8 @@ We also conducted experiments on [LIVE](https://live.ece.utexas.edu/research/Qua
 ## Checkpoints
 | Training Set | Testing Set|        Pretrained Model of MANIQA     | 
 | :---:        |     :---:      |:---:      |
-|[PIPAL2022](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) dataset (200 reference images, 23200 distortion images, MOS scores for each distortion image) | [Validation] [PIPAL2022](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) dataset (1650 distortion images) |[![pretrained model](https://img.shields.io/badge/Model-PIPAL22_checkpoint-yellow.svg)](https://github.com/IIGROUP/MANIQA/releases/tag/PIPAL22-VALID-CKPT)|
-| [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html) dataset (81 reference images and 10125 distorted images). 8000 distorted images for training | [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html) dataset. 2125 distorted images for testing |[![pretrained model](https://img.shields.io/badge/Model-KADID10K_Checkpoint-yellow.svg)](https://github.com/IIGROUP/MANIQA/releases/tag/Kadid10k)|
+|[PIPAL2022](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) dataset (200 reference images, 23200 distortion images, MOS scores for each distortion image) | [Validation] [PIPAL2022](https://codalab.lisn.upsaclay.fr/competitions/1568#participate-get_data) dataset (1650 distortion images) |[![pretrained model](https://img.shields.io/badge/Model-PIPAL22_checkpoint-yellow.svg)](https://github.com/IIGROUP/MANIQA/releases/tag/PIPAL22-VALID-CKPT)<br />SRCC:0.686, PLCC:0.707|
+| [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html) dataset (81 reference images and 10125 distorted images). 8000 distorted images for training | [KADID-10K](http://database.mmsp-kn.de/kadid-10k-database.html) dataset. 2125 distorted images for testing |[![pretrained model](https://img.shields.io/badge/Model-KADID10K_Checkpoint-yellow.svg)](https://github.com/IIGROUP/MANIQA/releases/tag/Kadid10k)<br />SRCC:0.939, PLCC:0.939|
 
 ## Usage
 ### Training MANIQA model
