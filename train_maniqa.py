@@ -136,17 +136,17 @@ if __name__ == '__main__':
         "dataset_name": "koniq10k",
 
         # PIPAL
-        "train_dis_path": "/mnt/cpath2/lf2/IQA_dataset/PIPAL22/Train_dis/",
-        "val_dis_path": "/mnt/cpath2/lf2/IQA_dataset/PIPAL22/Val_dis/",
+        "train_dis_path": "/mnt/IQA_dataset/PIPAL22/Train_dis/",
+        "val_dis_path": "/mnt/IQA_dataset/PIPAL22/Val_dis/",
         "pipal22_train_label": "./data/PIPAL22/pipal22_train.txt",
         "pipal22_val_txt_label": "./data/PIPAL22/pipal22_val.txt",
 
         # KADID-10K
-        "kadid10k_path": "/mnt/cpath2/lf2/IQA_dataset/kadid10k/images/",
+        "kadid10k_path": "/mnt/IQA_dataset/kadid10k/images/",
         "kadid10k_label": "./data/kadid10k/kadid10k_label.txt",
 
         # KONIQ-10K
-        "koniq10k_path": "/mnt/cpath2/lf2/IQA_dataset/1024x768/",
+        "koniq10k_path": "/mnt/IQA_dataset/1024x768/",
         "koniq10k_label": "./data/koniq10k/koniq10k_label.txt",
         
         # optimization
