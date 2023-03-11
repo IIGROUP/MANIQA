@@ -38,6 +38,7 @@ class Image(torch.utils.data.Dataset):
         self.transform = transform
 
         c, h, w = self.img.shape
+        print(self.img.shape)
         new_h = 224
         new_w = 224
 
@@ -72,7 +73,7 @@ if __name__ == '__main__':
     # config file
     config = Config({
         # image path
-        "image_path": "./test_images/I01_15_05.png",
+        "image_path": "./test_images/kunkun.png",
 
         # valid times
         "num_crops": 20,
@@ -90,7 +91,7 @@ if __name__ == '__main__':
         "scale": 0.8,
 
         # checkpoint path
-        "ckpt_path": "./ckpt_kadid10k.pt",
+        "ckpt_path": "./ckpt_koniq10k.pt",
     })
     
     # data load
