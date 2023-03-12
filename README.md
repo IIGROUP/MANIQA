@@ -113,7 +113,7 @@ pip install -r requirements.txt
 ```
 
 ## Acknowledgment
-Our codes partially borrowed from [anse3832](https://github.com/anse3832/MUSIQ) and [timm](https://github.com/rwightman/pytorch-image-models). Thanks the [SwinIR](https://github.com/JingyunLiang/SwinIR) Readme.md. We modify our file like them.
+Our codes partially borrowed from [anse3832](https://github.com/anse3832/MUSIQ) and [timm](https://github.com/rwightman/pytorch-image-models). Thanks for the [SwinIR](https://github.com/JingyunLiang/SwinIR) Readme.md. We modify ours file like them.
 
 ## Related Work
 ### NTIRE2021 IQA Full-Reference Competition
